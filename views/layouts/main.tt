@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=[% settings.charset %]" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    [% meta1 %]
+    [% css %]
+    [% css_m %]
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+    <title>[% title %]</title>
+</head>
+<body>
+    <div class="container">
+        [% content %]
+    </div>
+
+    <footer>
+    <p>&copy; 2012 Mirko Iannella</p>
+    </footer>
+
+</body>
+</html>

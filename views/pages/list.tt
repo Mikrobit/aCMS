@@ -1,0 +1,25 @@
+[% WRAPPER layouts/main.tt %]
+    [% css = '<link rel="stylesheet" href="/css/blog.css" media="all" />' %]
+    [% css_m = '<link rel="stylesheet" href="/css/m.blog.css" media="(max-width: 999px)" />' %]
+    [% title = site.title %]
+
+    <div class="header">
+    <h1>[% site.title %]</h1>
+    </div>
+    [% FOREACH page IN pages %]
+        [% IF page.title %]
+    <div class="article">
+
+        <div class="title">
+            <h3>
+                <a href="/pages/[% page.slug %]">[% page.title %]</a>
+                <img class="button-comment" src="/images/icons/glyphicons_244_conversation.png" alt="Comment" onclick="toggleSocial('[% page.slug %]')" />
+            </h3>
+        </div>
+
+        [% INCLUDE '/www/aCMS/views/pages/content.tt' %]
+
+    </div>
+        [% END %]
+    [% END %]
+[% END %]

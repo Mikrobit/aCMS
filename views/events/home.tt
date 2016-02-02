@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="css/blog.css" />
+
+<div class="header">
+<h1>[% site.title %]</h1>
+</div>
+[% FOREACH post IN posts %]
+    [% IF post.title %]
+<div class="row article">
+    <div class="span8 offset2 title"><h3><a href="/news/[% post.slug %]">[% post.title %]</a></h3></div>
+    <div class="span8 offset2 content">
+        <p>[% post.content %]</p>
+        <p><small>-- [% post.nicename %]</small></p>
+   </div>
+</div>
+    [% END %]
+[% END %]

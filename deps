@@ -1,0 +1,12 @@
+Dancer
+Dancer::Plugin::Database
+YAML
+Template
+DBD::Pg
+DateTime
+DateTime::Format::Pg
+Moose
+namespace::autoclean
+Modern::Perl
+Carp
+HTML::Strip

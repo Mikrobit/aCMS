@@ -1,0 +1,32 @@
+[% WRAPPER layouts/admin.tt %]
+    <div class="row-fluid">
+
+        <h2>Eventi</h2>
+        <p><a href="/admin/events/new" class="btn">Nuovo</a></p>
+        [% IF msg %]
+        <div class="alert alert-info">[% msg %]</div>
+        [% END %]
+        <hr>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="span8">Titolo</th>
+                    <th class="span1">Modifica</th>
+                    <th class="span1">Elimina</th>
+                </tr>
+            </thead>
+        [% FOREACH event IN posts %]
+            [% IF event.status == status %]
+            <tbody>
+                <tr>
+                    <td class="span8"><a href="/admin/events/edit/[% event.id %]">[% event.title %]</a></td>
+                    <td class="span1"><a href="/admin/events/edit/[% event.id %]"><i class="icon-edit"></i></a></td>
+                    <td class="span1"><a href="/admin/events/del/[% event.id %]"><i class="icon-trash"></i></a></td>
+                </tr>
+            </tbody>
+            [% END %]
+        [% END %]
+        </table>
+        <p><a href="/admin/events/new" class="btn">Nuovo</a></p>
+    </div>
+[% END %]

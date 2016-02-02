@@ -1,0 +1,61 @@
+[% WRAPPER layouts/admin.tt %]
+<div class="row-fluid">
+
+    <!-- NicEdit -->
+    <script src="[% request.uri_base %]/javascripts/nicEdit-0.9r23.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    <!--
+    bkLib.onDomLoaded(function(){
+      var myEditor = new nicEditor({uploadURI : "[% request.uri_base %]/up", fullPanel : true }).panelInstance('content');
+      
+    //-->
+    </script>
+    <!-- /NicEdit -->
+
+    [% IF action == 'edit' %]
+    <h2>Modifica la pagina</h2>
+    [% ELSE %]
+    <h2>Aggiungi una pagina</h2>
+    [% END %]
+    <hr>
+    <p id="test"></p>
+    <form class="form-horizontal" action="" method="post">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="title">Titolo</label>
+                <div class="controls">
+                    <input type="text" class="span9" id="title" name="title" value="[% page.title %]" />
+                    <p class="help-block">Inserisci un titolo per la pagina</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="excerpt">Estratto</label>
+                <div class="controls">
+                    <textarea name="excerpt" id="excerpt" rows="3" class="span9">[% page.excerpt %]</textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="content">Contenuto</label>
+                <div class="controls">
+                    <textarea name="content" id="content" rows="10" class="span9">[% page.content %]</textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="tags">Tags</label>
+                <div class="controls">
+                    <input type="text" class="span9" id="tags" name="tags" value="[% page.tags %]" />
+                    <p class="help-block">Inserisci i tag per la pagina, separati da virgola</p>
+                </div>
+            </div>
+            <input type="hidden" name="type" value="page" />
+            <input type="hidden" name="date" value="[% page.date %]" />
+            <div class="form-actions">
+                <button type="submit" class="btn btn-success" name="status" value="p">Pubblica</button>
+                [% IF page.status != 'p' %]
+                    <button type="submit" class="btn btn-info" name="status" value="q">Invia</button>
+                [% END %]
+            </div>
+        </fieldset>
+    </form>
+</div>
+[% END %]

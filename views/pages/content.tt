@@ -1,0 +1,34 @@
+<div class="content">
+    <div>[% page.content %]</div>
+    <div><small>--&nbsp;<br />[% page.nicename %]</small></div>
+    <div class="social" id="social.[% page.slug %]">
+
+        <div class="buttons">
+            <a class="twit" href="https://twitter.com/intent/tweet?text=[% page.slug %]%20http%3A%2F%2F[% site.domain %]%2Fpages%2F[%page.slug%]" target="_blank">&nbsp;</a>
+            <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=//[% site.domain %]/[% page.slug %]" target="_blank">&nbsp;</a>
+            <a class="gplus" href="http://plus.google.com/share?url=http://[% site.domain %]/[% page.slug %]" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,height=600,width=600');return false;">
+                <img src="https://ssl.gstatic.com/images/icons/gplus-16.png" alt="Share on Google+" />
+            </a>
+        </div>
+        <div class="comments" id="comments.to.[% page.slug %]">
+            [% FOREACH comment IN page.comments %]
+                <div class="comment">
+                    <div class="c_title">[% comment.title %]</div>
+                    <div class="c_author"><span class="txt-small">[% IF comment.author_url %]<a href="http://[% comment.author_url %]">[% END %][% comment.author %][% IF comment.author_url %]</a>[% END %]</span></div>
+                    <div class="c_content">[% comment.content %]</div>
+                </div>
+            [% END %]
+            <form action="/comment" method="post">
+                <input type="hidden" name="id"           value="[% page.id %]" />
+                <input type="hidden" name="parent"       value="0" />
+                <input type="text"   name="author"       class="small" value="" placeholder="Name" />
+                <input type="text"   name="author_email" class="small" value="" placeholder="E-mail" />
+                <input type="text"   name="author_url"   class="small" value="" placeholder="URL" />
+                <input type="text"   name="title"        class="large" value="" placeholder="Title" />
+                <textarea            name="content"      class="large"          placeholder="Comment"></textarea>
+                <p><button name="submit" type="submit" value="Send" >Send</button></p>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="css/blog.css" />
+<div class="hero-unit">
+<h1 style="text-align: center">[% site.title %]</h1>
+</div>
+<div class="row article">
+    <div class="span8 offset2 title" style="background-color: #EEE;"><h3>[% post.title %]</h3></div>
+    <div class="span8 offset2 content" style="border-left: 3px solid #EEE;">
+        <p>[% post.content %]</p>
+        <p><small>-- [% post.nicename %]</small></p>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+@media (max-width:999px) {
+    body { padding: 0; margin: 0; }
+    .header { width: 90%; }
+    .article { width: 90%; max-width: 720px; }
+    .article .title { width: 100%; }
+    .article .content { width: 100%; }
+    .article .content .social { width: 100%; }
+}
+
+@media (max-width:719px) {
+    body { padding: 0; margin: 0; }
+    .header { width: 100%; margin: 0; margin-bottom: 30px; padding-left: 0; padding-right: 0; border-radius: 0; }
+    .article { width: 100%; border: 0; }
+}
+
+@media (max-width:479px) {
+    body { background: rgb(115,115,255,0.1); }
+    .article .content div { width: 99%; }
+}
+

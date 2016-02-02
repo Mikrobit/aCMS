@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="span4 offset4">
+        [% IF failed %]
+        <div class="alert alert-error">
+            Nome utente o password errati.
+        </div>
+        [% END %]
+        <form class="well form-search" method="post" action="">
+            <input type="text" placeholder="Username" class="input-small" name="user" />
+            <input type="password" placeholder="Password" class="input-small" name="pass" />
+            <button class="btn" type="submit">Invia</button>
+        </form>
+    </div>
+</div>

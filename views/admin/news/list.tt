@@ -1,0 +1,29 @@
+[% WRAPPER layouts/admin.tt %]
+    <div class="row-fluid">
+
+        <h2>Articoli</h2>
+        <p><a href="/admin/news/new" class="btn">Nuovo</a></p>
+        <hr>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="span8">Titolo</th>
+                    <th class="span1">Modifica</th>
+                    <th class="span1">Elimina</th>
+                </tr>
+            </thead>
+        [% FOREACH post IN posts %]
+            [% IF post.status == status %]
+            <tbody>
+                <tr>
+                    <td class="span8"><a href="/admin/news/edit/[% post.id %]">[% post.title %]</a></td>
+                    <td class="span1"><a href="/admin/news/edit/[% post.id %]"><i class="icon-edit"></i></a></td>
+                    <td class="span1"><a href="/admin/news/del/[% post.id %]"><i class="icon-trash"></i></a></td>
+                </tr>
+            </tbody>
+            [% END %]
+        [% END %]
+        </table>
+        <p><a href="/admin/news/new" class="btn">Nuovo</a></p>
+    </div>
+[% END %]

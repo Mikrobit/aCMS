@@ -1,0 +1,67 @@
+[% WRAPPER layouts/admin.tt %]
+<div class="row-fluid">
+
+    <!-- NicEdit -->
+    <script src="[% request.uri_base %]/javascripts/nicEdit-0.9r23.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    <!--
+    bkLib.onDomLoaded(function(){
+      var myEditor = new nicEditor({uploadURI : "[% request.uri_base %]/up", fullPanel : true }).panelInstance('content');
+      
+      // This is how I write to an editor:
+/*      var ed = nicEditors.findEditor('content');
+      var current = ed.getContent();
+      var newContent = current + "Sto testando.<br />";
+      ed.setContent(newContent);*/
+    });
+    //-->
+    </script>
+    <!-- /NicEdit -->
+
+    [% IF action == 'edit' %]
+    <h2>Modifica l'articolo</h2>
+    [% ELSE %]
+    <h2>Aggiungi un articolo</h2>
+    [% END %]
+    <hr>
+    <p id="test"></p>
+    <form class="form-horizontal" action="" method="post">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="title">Titolo</label>
+                <div class="controls">
+                    <input type="text" class="span9" id="title" name="title" value="[% post.title %]" />
+                    <p class="help-block">Inserisci un titolo per l'articolo</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="excerpt">Estratto</label>
+                <div class="controls">
+                    <textarea name="excerpt" id="excerpt" rows="3" class="span9">[% post.excerpt %]</textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="content">Contenuto</label>
+                <div class="controls">
+                    <textarea name="content" id="content" rows="10" class="span9">[% post.content %]</textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="tags">Tags</label>
+                <div class="controls">
+                    <input type="text" class="span9" id="tags" name="tags" value="[% post.tags %]" />
+                    <p class="help-block">Inserisci i tag per l'articolo, separati da virgola</p>
+                </div>
+            </div>
+            <input type="hidden" name="type" value="post" />
+            <input type="hidden" name="date" value="[% post.date %]" />
+            <div class="form-actions">
+                <button type="submit" class="btn btn-success" name="status" value="p">Pubblica</button>
+                [% IF post.status != 'p' %]
+                    <button type="submit" class="btn btn-info" name="status" value="q">Invia</button>
+                [% END %]
+            </div>
+        </fieldset>
+    </form>
+</div>
+[% END %]
